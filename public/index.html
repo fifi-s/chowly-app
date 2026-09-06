@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chowly - Dining Redefined</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Top Navigation Header -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon">🍽️</span>
+            <h1>Chowly</h1>
+        </div>
+        <div class="role-switcher">
+            <span>Active View:</span>
+            <button id="btn-role-customer" class="role-btn active" onclick="switchRole('customer')">Customer
+                View</button>
+            <button id="btn-role-waiter" class="role-btn" onclick="switchRole('waiter')">Waiter View</button>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- CUSTOMER VIEW SECTION -->
+        <section id="view-customer" class="view-section active">
+            <div class="banner">
+                <h2>Welcome to Table #4</h2>
+                <p>Select your favorite dishes, view dynamic waiting times, and track your order live!</p>
+            </div>
+
+            <div class="customer-layout">
+                <!-- Menu Column -->
+                <div class="menu-container">
+                    <div class="filter-bar">
+                        <button class="filter-btn active" onclick="filterMenu('all')">All</button>
+                        <button class="filter-btn" onclick="filterMenu('food')">Food 🍔</button>
+                        <button class="filter-btn" onclick="filterMenu('drink')">Drinks 🍹</button>
+                    </div>
+                    <div id="menu-grid" class="menu-grid"></div>
+                </div>
+
+                <!-- Cart / Active Order Column -->
+                <div class="side-panel">
+                    <div class="card cart-card">
+                        <h3>Your Table Order</h3>
+                        <div id="cart-items" class="cart-items-list">
+                            <p class="empty-msg">Your cart is currently empty.</p>
+                        </div>
+                        <div class="cart-summary">
+                            <div class="summary-row"><span>Total Price:</span><strong id="cart-total">$0.00</strong>
+                            </div>
+                            <button class="btn-primary" onclick="submitOrder()">Place Order</button>
+                        </div>
+                    </div>
+
+                    <!-- Customer Active Orders Track -->
+                    <div class="card active-orders-card">
+                        <h3>Active Orders Status</h3>
+                        <div id="customer-orders-list"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WAITER VIEW SECTION -->
+        <section id="view-waiter" class="view-section">
+            <div class="banner waiter-banner">
+                <h2>Waiter Dashboard 📋</h2>
+                <p>Assign chefs & bartenders, manage incoming kitchen orders, and track bill payments.</p>
+            </div>
+
+            <div id="waiter-orders-grid" class="orders-grid"></div>
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
